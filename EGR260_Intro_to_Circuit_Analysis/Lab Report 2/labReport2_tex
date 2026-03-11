@@ -1,0 +1,378 @@
+\documentclass[12pt]{article}
+% ---------------- Packages ----------------
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\setlength{\parindent}{0pt}
+\onehalfspacing
+\begin{document}
+
+\begin{titlepage}
+    \centering
+
+    \vspace*{1in}
+
+    \textbf{\Large COLLEGE OF LAKE COUNTY} \\[0.2in]
+
+    \textbf{\large Department of Engineering} \\[0.6in]
+
+    \textbf{\Large EGR 260} \\
+    \textbf{\large Introduction to Circuit Analysis} \\[0.6in]
+
+    \textbf{\Large Lab \#2} \\[0.2in]
+
+
+    \begin{center}
+            \textbf{Reported by:} Anh Thong Le \\[0.15in]
+    \textbf{Date Performed:} February 5, 2026 \\[0.15in]
+    \textbf{Date Submitted:} March 4, 2026 \\[0.15in]
+    \textbf{Submitted to:} Dr. Regez
+    \end{center}
+        
+
+    \vfill
+\end{titlepage}
+
+
+% ---------------- Title Info ----------------
+\title{\textbf{EGR 260: Intro to Circuit Analysis}\\
+Lab \#1: Ohm's Law and Basic Circuit Analysis}
+\author{
+Anh Thong Le \\
+Instructor: Dr. Regez \\
+Department of Engineering \\
+College of Lake County
+}
+\date{Date Performed: February 5, 2026\quad Date Submitted: March 3, 2026}
+
+% ---------------- Objective ----------------
+\section{Objective}
+The objective of this experiment is understand the function of a ladder network circuit consisting of series and parallel components. This Experiment also finds unknown resistance value in the Wheatstone bridge, confirms kirchhoff's current law (KCL), kirchhoff's voltage law (KVL), and uses nodal analysis \& mesh analysis to confirm lab measurements. 
+
+% ---------------- Equipment ----------------
+\section{Equipment}
+\begin{itemize}
+    \item DC power supply
+    \item Digital multimeter
+    \item Resistors (four 2k resistors, two 1k resistors, one 4k resistor, and one 10k resistor)
+    \item Breadboard
+    \item Connecting wires
+\end{itemize}
+\begin{figure} [H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{EGR260_labReport2.jpg}
+    \caption{The picture displaying connecting wires, breadboard, male-to-male jumper wires, four straight 2k resistors, and two bended 1k resistors.}
+    \label{fig:Equiment}
+\end{figure}
+
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=0.8\linewidth]{BK_Precision_DC_Power_Supply.jpg}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=0.9\linewidth]{BK_Precision_Digital_Multimeter.jpg}
+    \end{subfigure}
+    \caption{Two pictures displaying the BK Precision DC Power Supply (left) and the BK Precision Digital Multimeter (right) used in this experiment.}
+\end{figure}
+
+
+% ---------------- Experimental Procedure ----------------
+\section{Experimental Procedure}
+
+\subsection{Ladder Circuit}
+Figure~\ref{fig:LadderCircuitSchematic} shows the schematic of the ladder circuit used in this experiment.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{completed_schematic_1_lab2.png}
+    \caption{Ladder Circuit with V1, V2, and V3 from left to right}
+    \label{fig:LadderCircuitSchematic}
+\end{figure}
+
+\textbf{The procedure of Ladder circuit}
+\begin{enumerate}
+    \item The circuit was constructed according to the schematic shown in Figure~\ref{fig:placeholder}.
+    \item DC voltages were applied using the power supply according to Table~\ref{tab:tableLadderCircuit}.
+    \item Voltages at A and B were measured using a multimeter.
+    \item Measurements were repeated for multiple voltage levels.
+\end{enumerate}
+
+\subsection{Wheatstone Bridge Circuit}
+Figure~\ref{fig:Wheatstone} shows the schematic of the Wheatstone Bridge circuit used in this experiment.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Completed_schematic_2_lab2_new.png}
+    \caption{Wheatstone Bridge Circuit with 5V source with three known and an unknown resistance value}
+    \label{fig:Wheatstone}
+\end{figure}
+
+\textbf{The procedure of Wheatstone Bridge circuit}
+\begin{enumerate}
+    \item The circuit was constructed according to the schematic shown in Figure~\ref{fig:Wheatstone}.
+    \item Find the unknown resistance to balance the Wheatstone Bridge.
+    \item Measure all voltage and current drops in the bridge.
+\end{enumerate}
+
+% ---------------- Analysis ----------------
+\section{Analysis}
+\subsection{Nodal and Mesh Analysis for the Ladder Circuit} 
+
+\text{To find ouput voltage in figure \ref{fig:LadderCircuitSchematic}, use node-voltage method at node 6:}
+\begin{equation}
+    \frac{V_6 - 0}{2000} + \frac{V_6 - V_5}{1000} + \frac{V_6 - 5}{2000} = 0
+    \notag
+\end{equation}
+\begin{equation}
+    -\frac{V_5}{2000} + \frac{V6}{500} = 0 
+    \tag{04.01}
+\end{equation}
+\text{Similarly, at node 5}
+\begin{equation}
+    \frac{V_5 - V_4}{1000} + \frac{V_5 - 5}{2000} + \frac{V_5 - V_6}{1000} = 0
+    \notag
+\end{equation}
+
+\begin{equation}
+    -\frac{V_4}{1000} + \frac{V_5}{400} - \frac{V_6}{1000} = \frac{1}{400}
+    \tag{04.02}
+\end{equation}
+\text{Finally, at node 4}
+\begin{equation}
+    \frac{V_4- V_5}{1000} + \frac{V_4 - 5}{2000} = 0 
+    \notag
+\end{equation}
+\begin{equation}
+    \frac{3V_4}{2000} - \frac{V_5}{1000} = \frac{1}{400}
+    \tag{04.03}
+\end{equation}
+\noindent Solve for V4, V5, and V6 using (04.01), (04.02), and (04.03): 
+\begin{equation}
+    V_6 = \SI{3.281}{V} 
+    \notag
+\end{equation}
+\begin{equation}
+    V_5 = \SI{4.063}{V} 
+    \notag
+\end{equation}
+\begin{equation}
+   V_{out} = V_4 = \SI{4.375}{V} 
+    \notag
+\end{equation}
+\text{As $V_{out}$ is equal to $V_4$, we confirmed the simulated value using nodal analysis.}
+
+\subsection{KCL and KVL for the bridge circuit}
+To find the unknown resistance in figure~\ref{fig:Wheatstone}, let the unknown, 1k, 10k, and 4k resistors be Rx, R2, R3, and R4, respectively. In a balanced bridge, the voltage drop at Rx is equal to that at R2: 
+\begin{equation}
+    V_x = V_2 
+    \notag
+\end{equation}
+\text{According to Ohm's Law: }
+\begin{equation}
+    i_x R_x = i_2 R_2 
+    \tag{04.04}
+\end{equation}
+\text{Similar analysis with R3 and R4: }
+\begin{equation}
+    i_3 R_3 = i_4 R_4 
+    \tag{04.05}
+\end{equation}
+Let (04.04) divided by (04.05): 
+\begin{equation}
+    \frac{i_x R_x}{i_3 R_3} = \frac{i_2 R_2 }{i_4 R_4 }
+    \tag{04.06}
+\end{equation}
+\noindent Additionally, current flowing in equals to current leaving the nodes (KCL). Therefore: 
+\begin{equation}
+    i_x = i_3 \quad ; \quad  i_2 = i_4
+    \notag
+\end{equation}
+Back to (04.06): 
+\begin{equation}
+    \frac{R_x}{R_3} = \frac{R_2 }{R_4 }
+    \tag{04.07}
+    \label{balancedCondition}
+\end{equation}
+\text{After rearranging: }
+\begin{equation}
+    R_x = \frac{R_2 }{R_4 }R_3 = \frac{10k}{4k}(1k) = 2.5k \SI{}{\ohm} 
+    \notag
+\end{equation}
+\textbf{Using KCL to confirm}
+\addlinespace
+Let node 1 be the node between 2.5k and 10k resistors and node 2 be the node between 1k and 4k resistors.
+\text{At node 1: }
+\begin{equation}
+    \frac{V_1-0}{10000} + \frac{V_1-5}{2500} = 0 
+    \notag
+\end{equation}
+\text{Rearranging: }
+\begin{equation}
+    \frac{V_1}{2000} = \frac{1}{500}
+    \notag
+\end{equation}
+\text{Therefore:}
+\begin{equation}
+ V_A =   V_1 = \SI{4}{V}
+    \tag{04.08}
+    \label{Va}
+\end{equation}
+
+\text{As }
+\text{Similarly, at node 2: }
+\begin{equation}
+    \frac{V_2-5}{1000} + \frac{V_2-0}{4000} = 0
+    \notag
+\end{equation}
+\text{Rearranging: }
+\begin{equation}
+    \frac{V_2}{800} = \frac{1}{200}
+    \notag
+\end{equation}
+\text{Then:}
+\begin{equation}
+    V_2= \SI{4}{V} \quad; \quad V_B = \SI{-4}{V}
+    \tag{04.09}
+    \label{Vb}
+\end{equation}
+\text{With the voltage value at A (04.08) and B (04.09), calculate the output Voltage: }
+\begin{equation}
+    V_{out} = V_A  + V_B = 4+ (-4) = 0 
+    \notag
+\end{equation}
+Therefore, the Wheatstone bridge is balanced as there is no difference in the magnitude of voltage at A and B.
+% ---------------- Data ----------------
+\section{Data}
+
+\subsection{Simulation and measurement values}
+\begin{table}[H]
+\centering
+\begin{tabularx}{0.8\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X |}
+ \hline
+ V1 & V2& V3 & Vout (simulated) & Vout (measured)\\
+ \hline
+ 0 V  & 0 V  & 0 V & 0 V& 0.00488 V\\
+\hline
+ 0 V  & 0 V& 5 V& 0,625 V & 0.913 V \\
+\hline
+ 0 V  & 5 V& 0 V& 1.25 V & 1.667 V \\
+\hline
+ 0 V  & 5 V& 5 V& 1.875 V & 2.393 V   \\
+\hline
+ 5 V & 0 V & 0 V& 2.5 V& 2.757 V  \\
+\hline
+ 5 V  & 0 V& 5 V& 3.125 V& 3.393 V \\
+\hline
+ 5 V& 5 V& 0 V & 3.75 V& 3.903 V \\
+\hline
+ 5 V& 5 V & 5 V& 4.375 V& 4.458 V \\
+\hline
+
+
+\end{tabularx} 
+\caption{Simulated and measured voltage values for the ladder circuit}
+\label{tab:tableLadderCircuit}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{1\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X |
+   >{\centering\arraybackslash}X |
+    >{\centering\arraybackslash}X |
+     >{\centering\arraybackslash}X |}
+ \hline
+   & $R_x$ & R2 & R3 & R4 & Vout (A+ term, B- term) \\
+ \hline
+ Resistance & 2.5k \SI{}{\ohm} & 1k \SI{}{\ohm}& 10k \SI{}{\ohm} & 4.0k \SI{}{\ohm} &  0 V\\
+\hline
+ Voltage drop  & 1 V  & 1 V &4 V & 4 V  &0 V\\
+\hline 
+ Current  & 4E-04 A& 0.001 A  & 4E-04 A& 0.001 A&  0 V\\
+\hline
+ Power   & 4E-04 W  &0.001 W  & 0.0016 W& 0.004 W & 0 V\\
+\hline
+\end{tabularx}
+\caption{Simulated values for Wheatstone Bridge Circuit}
+
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{1\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X |
+   >{\centering\arraybackslash}X |
+    >{\centering\arraybackslash}X |
+     >{\centering\arraybackslash}X |}
+ \hline
+   & $R_x$ & R2 & R3 & R4 & Vout (A+ term, B- term) \\
+ \hline
+ Resistance & 2.512k \SI{}{\ohm} & 0.931k \SI{}{\ohm}& 10.042k \SI{}{\ohm} & 4.023k \SI{}{\ohm} & 0.0012 V \\
+\hline
+ Voltage drop  & 1.021 V  & 1.014 V &4.002 V & 4.031 V  & 0.0012 V\\
+\hline 
+ Current  & 3.981E-04 A& 0.0011 A& 3.983E-04 A& 9.943E-04 A& 0.0012 V \\
+\hline
+ Power   & 3.98E-04 W  &0.0011 W  & 0.00159 W& 0.003977 W & 0.0012 V  \\
+\hline
+\end{tabularx} 
+\caption{Measured values for Wheatstone Bridge Circuit}
+
+
+\end{table}
+% ---------------- Graphs ----------------
+\section{Graphs}
+\begin{figure} [H]
+    \centering
+    \includegraphics[width=1\linewidth]{ladderGraph.png}
+    \caption{The bar chart displaying the measured voltage compared to the simulated voltage in the Ladder Circuit (Figure \ref{fig:LadderCircuitSchematic}).}
+    \label{fig:LadderGraph}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{WheatstoneBridgeGraph_final.png}
+    \caption{The bar charts demonstrating the simulated values compared to measured values for Resistance, Voltage, and Current in the Wheatstone Bridge Circuit (Figure \ref{fig:Wheatstone}).}
+    \label{fig:WheatstoneBridgeGraph}
+\end{figure}
+% ---------------- Discussion ----------------
+\section{Discussion and Conclusions}
+
+\subsection{Relationship}
+The ladder network demonstrated a clear linear relationship (Figure \ref{fig:LadderGraph}) between the input voltage combinations and the output voltage $V_{out}$. From the simulated results, the output increased in equal increments of 0.625 V, indicating that the circuit behaves as a linear resistive network and confirming that the physical circuit behaves consistently with theoretical predictions derived from nodal analysis. 
+
+
+\subsection{Experimental and Simulated Results}
+For the ladder circuit, the measured values were reasonably close to the simulated values. The differences were generally small and increased slightly at higher voltages, but the overall trend remained linear. The discrepancies can be attributed to:
+
+\begin{itemize}
+        \item Resistor tolerance (typically ±5\%)
+    \item Internal resistance of the multimeter
+    \item Breadboard contact resistance
+    \item Slight variations in the power supply output
+\end{itemize}
+Despite these small differences, the percent error remained relatively low, confirming the simulated value using nodal analysis. While the measured voltage difference between the midpoints is 0.0012 V, this value is very close zero, which is the simulated output voltage.
+
+\subsection{Conclusion}
+Overall, the experiment is confirmed by using KCL, KVL with nodal and mesh analysis within acceptable experimental error. While the ladder circuit showed that linear resistive networks (consisting of series \& parallel components) produce predictable and proportional output voltages, the Wheatstone Bridge analysis showed how unknown resistance can be determined by the equation (\ref{balancedCondition}): 
+\begin{equation}
+    \frac{R_x}{R_3} = \frac{R_2 }{R_4 }
+    \notag
+\end{equation}
+\end{document}
