@@ -1,0 +1,305 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, physics, graphicx, booktabs, geometry}
+\usepackage[⟨options⟩]{fancyhdr}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{caption}
+\captionsetup[table]{justification=raggedright, singlelinecheck=false}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{multirow}
+
+\geometry{margin=1in}
+
+\title{Lab Report 3:  Ideal Gas Law }
+\author{PHY 124 \quad Anh Thong Le}
+\date{03/11/2026}
+
+\begin{document}
+\maketitle
+\section{Abstract}
+In this study, an Adiabatic process followed by an Isochoric process is conducted to investigate and verify the ideal gas law. This study consisted of two main parts: calculating gamma in the Adiabatic process and verifying the ideal gas law via the isochoric process. While the empirical value found in the first part resulted in a high percent error, the second part showed the linearity, which verified the Ideal Gas Law. 
+\section{Theory}
+
+The ideal gas law is fundamental in thermodynamics to describe the relationship between pressure (P), volume (V), temperature (T), and the number of moles (n) of a gas. It is expressed by the formula: 
+\begin{equation}
+    PV = nRT
+\tag{02.01}
+\label{IdealGasLaw}
+\end{equation}
+\begin{itemize}
+    \item The universal gas constant R = 8.314 J/(mol $\cdot$ K) 
+\end{itemize}
+
+\noindent Gamma is known as the constant calculated by the division of the specific heat at constant pressure ($C_p$) over the specific heat at constant volume ($C_v$). Specifically, the gamma constant is involved in the Adiabatic process, in which the multiplication of the pressure and the volume raised to the power of gamma is equal to constant:
+
+\begin{equation}
+        \gamma = \frac{C_p}{C_v} \quad and \quad PV^{\gamma} = constant
+\tag{02.02}
+\label{PVconst}
+\end{equation}
+\text{Assume that air is an ideal diatomic gas, the theoretical gamma value is: }
+\begin{equation}
+        \gamma = \frac{C_p}{C_v} = \frac{\frac{7}{2}R}{\frac{5}{2}R} = \frac{7}{5} = 1.400
+\tag{02.03}
+\label{theoGamma}
+\end{equation}
+\section{Experimental Apparatus}
+Adiabatic Gas Law Apparatus, laptop, Science Workshop Interface, DC Power supply. 
+
+\section{Procedure}
+Firstly, one of the two nozzles is open to allow air to flow in while expanding the cylinder fully. Press Record in the data window to start taking data before compressing the cylinder fully in about 1.2 seconds. After the compression, hold the lever for about five seconds and then release it. Finally, press Stop in the data window to end taking data. 
+
+
+\section{Results and Analysis}
+The experiment involved compressing the air and holding it for about fives seconds after the compression. The compression resulted in an Adiabatic process, in which no heat is transfer and holding it later resulted in an Isochoric process, in which the Volume remained constant. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.83\linewidth]{PVGraphWholeProcess.png}
+    \caption{The graph of Pressure versus Volume during the experiment}
+    \label{fig:PVGraph}
+\end{figure}
+
+\subsection{Finding $\gamma$ during the Adiabatic process}
+In the initial part of the experiment, the Adiabatic process from the compression of air in a short time resulted in an increase of pressure. And from the theory ( \ref{PVconst}): 
+\begin{equation}
+    PV^{\gamma} = c_1 \quad (constant) 
+    \notag
+\end{equation}
+\text{Take the natural logarithm of both sides:}
+\begin{equation}
+    ln(PV^{\gamma}) = ln(c_1) = c_2
+    \notag
+\end{equation}
+\text{Therefore: }
+\begin{equation}
+    ln(P) + \gamma ln(V) = c_2
+    \notag
+\end{equation}
+\text{Rearranging: }
+\begin{equation}
+    ln(P) = - \gamma ln(V) + c_2
+    \notag
+\end{equation}
+\text{which naturally is the linear form:  }
+\begin{equation}
+    y = mx + c_2
+    \notag
+\end{equation}
+\noindent Since the natural logarithms of Volume are negative across the table, the gamma is the slope (m) of the graph of $ln(P)$ versus $-ln(V)$. 
+
+\text{}
+\begin{table}[H]
+\centering
+\begin{tabularx}{1\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X |
+   >{\centering\arraybackslash}X |
+    >{\centering\arraybackslash}X |
+     >{\centering\arraybackslash}X |
+      >{\centering\arraybackslash}X |
+      >{\centering\arraybackslash}X |}
+ \hline
+Time index [s] & Pressure [Pa] & Volume [$m^3$] & Temperature [K] \\ 
+ \hline
+0.0 & 95676  & 2.4095E-04 & 293.28  \\
+\hline
+0.3 & 137070  & 1.8045E-04 & 306.16  \\
+\hline
+ 0.5 & 181438 & 1.3824E-4 & 318.65  \\
+\hline
+ 0.7 & 211430  & 1.0801E-04 & 326.12  \\
+\hline
+\end{tabularx} 
+\addlinespace
+\label{Table 05.01}{Table 05.01: State variables during the Adiabatic process}
+\end{table}
+
+\noindent Use the data above, take the natural logarithm of pressure and volume:
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{0.6\textwidth} { 
+  | >{\centering\arraybackslash}X |
+    >{\centering\arraybackslash}X |
+    >{\centering\arraybackslash}X |}
+ \hline
+$ln(P)$ [Pa] & $-ln(V)$ [$m^3$] \\ 
+ \hline
+ 11.468 &  8.3309 \\
+\hline
+ 11.828 &  8.6200\\
+\hline
+ 12.108 &  8.88\\
+\hline
+ 12.262 & 9.1333\\
+\hline
+\end{tabularx} 
+\addlinespace
+\label{Table 05.01}{Table 05.02: Natural logarithms of Pressure and Volume}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{GraphOfNaturalLog_3.png}
+    \caption{The best fit line of the graph of $ln(P)$ versus $-ln(V)$}
+    \label{fig:graphofLnPvs-LnV}
+\end{figure}
+
+\text{Therefore, the theoretical (from \ref{theoGamma}) and experiment values of $\gamma$: }
+\begin{table}[H]
+\centering
+\begin{tabularx}{0.80\textwidth} { 
+  | >{\centering\arraybackslash}X |
+    >{\centering\arraybackslash}X |
+    >{\centering\arraybackslash}X |}
+ \hline
+$\gamma_{theo}$ & $\gamma_{theo}$ & Percent error \\ 
+ \hline
+ 1.002 &  1.400 & 28.43 \%\\
+\hline
+
+\end{tabularx} 
+\addlinespace
+\label{Table 05.01}{Table 05.03: Theoretical and Experimental values of $\gamma$}
+\end{table}
+
+\subsection{Verifying the Ideal Gas Law}
+After the compression, the gas in the cylinder experienced an Isochoric process, in which the volume remained constant.  
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{1\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X |
+   >{\centering\arraybackslash}X |
+    >{\centering\arraybackslash}X |
+     >{\centering\arraybackslash}X |
+      >{\centering\arraybackslash}X |
+      >{\centering\arraybackslash}X |}
+ \hline
+Time index [s] & Pressure [Pa] & Volume [$m^3$] & Temperature [K] \\ 
+ \hline
+0.8 & 202754  & 0.102444  & 325.82  \\
+\hline
+1.2 & 137752 & 0.102405 & 303.29 \\
+\hline
+1.6 & 106892 & 0.102385  & 289.16 \\
+\hline
+2.0 & 95986 & 0.102385 & 285.78  \\
+\hline
+\end{tabularx} 
+\addlinespace
+\label{Table 05.04}{Table 05.04: State variables during the Isochoric process}
+\end{table}
+\noindent According to theory of Ideal Gas Law (\ref{IdealGasLaw}): 
+\begin{equation}
+    PV = nRT 
+    \notag
+\end{equation}
+\text{Since the volume remained constant, the pressure can be expressed as a function of temperature: }
+\begin{equation}
+    P = (\frac{nR}{V} ) T
+    \notag
+\end{equation}
+% \text{Plotting the graph of Pressure versus Temperature: }
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.9\linewidth]{GraphOfPressureVsTemperature.png}
+%     \caption{The best fit line of the graph of Pressure versus Temperature}
+%     \label{fig:GraphOfPressureVsTemperature}
+% \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{GraphOfPressureAndTemperature.png}
+    \caption{The best fit line of the graph of Pressure versus Temperature}
+    \label{fig:GraphOfPressureVsTemperature}
+\end{figure}
+
+\section{Conclusion}
+In the Adiabatic process, air is compressed in a short period of time, resulting a pump in pressure measurement. While the analysis was conducted accurately, the calculated $\gamma$ showed a relatively large percentage of error, 28.43\%. 
+\\
+\\
+\noindent After the compression, the cylinder was hold for about fives seconds to, which led to the Isochoric process. Knowing the constant volume, the analysis then showed pressure P as a function of temperature T. The linearity in figure \ref{fig:GraphOfPressureVsTemperature} therefore verified the Ideal Gas Law. Accordingly, the number of moles in the cylinder was calculated. 
+
+\section{Appendix I: Sample Calculations}
+\text{Given the slope in Figure \ref{fig:GraphOfPressureVsTemperature}, calculate the number of moles of gas in the cylinder: }
+\begin{equation}
+    \frac{nR}{V} = 2632.65 
+    \notag
+\end{equation}
+\text{Therefore: }
+\begin{equation}
+    n =\frac{V}{R}(2632.65) = \frac{0.102385}{8.314}(2632.65) = \SI{32.42}{mol}
+    \notag
+\end{equation}
+
+\section{Appendix II: Error Statement}
+
+A relatively high percentage of error in the calculated $\gamma$ can be attributed to human error, especially during the compression phase. If the gas should have been compressed in a much shorter amount of time, the pressure would experience a larger surge. 
+
+\section{Appendix III: Tabulated Data}
+\begin{table}[H]
+\centering
+\begin{tabularx}{1\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X |
+   >{\centering\arraybackslash}X |
+    >{\centering\arraybackslash}X |
+     >{\centering\arraybackslash}X |
+      >{\centering\arraybackslash}X |
+      >{\centering\arraybackslash}X |}
+ \hline
+Time index [s] & Pressure [Pa] & Volume [$m^3$] & Temperature [K] \\ 
+ \hline
+0.0 & 95676  & 2.4095E-04 & 293.28  \\
+\hline
+0.3 & 137070  & 1.8045E-04 & 306.16  \\
+\hline
+ 0.5 & 181438 & 1.3824E-4 & 318.65  \\
+\hline
+ 0.7 & 211430  & 1.0801E-04 & 326.12  \\
+\hline
+\end{tabularx} 
+\addlinespace
+\label{Table 05.01}{Table 09.01: State variables during the Adiabatic process}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{1\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X |
+   >{\centering\arraybackslash}X |
+    >{\centering\arraybackslash}X |
+     >{\centering\arraybackslash}X |
+      >{\centering\arraybackslash}X |
+      >{\centering\arraybackslash}X |}
+ \hline
+Time index [s] & Pressure [Pa] & Volume [$m^3$] & Temperature [K] \\ 
+ \hline
+0.8 & 202754  & 0.102444  & 325.82  \\
+\hline
+1.2 & 137752 & 0.102405 & 303.29 \\
+\hline
+1.6 & 106892 & 0.102385  & 289.16 \\
+\hline
+2.0 & 95986 & 0.102385 & 285.78  \\
+\hline
+\end{tabularx} 
+\addlinespace
+\label{Table 05.04}{Table 09.02: State variables during the Isochoric process}
+\end{table}
+\end{document}
