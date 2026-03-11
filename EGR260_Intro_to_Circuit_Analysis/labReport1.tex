@@ -1,0 +1,234 @@
+\documentclass[12pt]{article}
+
+% ---------------- Packages ----------------
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+\setlength{\parindent}{0pt}
+\onehalfspacing
+\begin{document}
+
+\begin{titlepage}
+    \centering
+
+    \vspace*{1in}
+
+    \textbf{\Large COLLEGE OF LAKE COUNTY} \\[0.2in]
+
+    \textbf{\large Department of Engineering} \\[0.6in]
+
+    \textbf{\Large EGR 260} \\
+    \textbf{\large Introduction to Circuit Analysis} \\[0.6in]
+
+    \textbf{\Large Lab \#1} \\[0.2in]
+
+
+    \begin{center}
+            \textbf{Reported by:} Anh Thong Le \\[0.15in]
+    \textbf{Date Performed:} January 29, 2026 \\[0.15in]
+    \textbf{Date Submitted:} February 11, 2026 \\[0.15in]
+    \textbf{Submitted to:} Dr. Regez
+    \end{center}
+        
+
+    \vfill
+\end{titlepage}
+
+
+% ---------------- Title Info ----------------
+\title{\textbf{EGR 260: Intro to Circuit Analysis}\\
+Lab \#1: Ohm's Law and Basic Circuit Analysis}
+\author{
+Your Name \\
+Instructor: Instructor Name \\
+Department of Engineering \\
+University Name
+}
+\date{Date Performed: \quad Date Submitted:}
+
+% ---------------- Objective ----------------
+\section{Objective}
+The objective of this experiment is to verify Ohm’s Law by analyzing the relationship between voltage, current, and resistance in a simple electrical circuit. Experimental results are compared with theoretical and simulated values to evaluate measurement accuracy and sources of error.
+
+% ---------------- Equipment ----------------
+\section{Equipment}
+\begin{itemize}
+    \item DC power supply
+    \item Digital multimeter
+    \item Resistors (specified values)
+    \item Breadboard
+    \item Connecting wires
+\end{itemize}
+
+% ---------------- Experimental Procedure ----------------
+\section{Experimental Procedure}
+
+\subsection{Circuit Schematic}
+Figure~\ref{fig:schematic} shows the schematic of the circuit used in this experiment.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image.png}
+    \caption{Schematic of simple resistive circuit}
+    \label{fig:schematic}
+\end{figure}
+
+\subsection{Procedure}
+\begin{enumerate}
+    \item The circuit was constructed according to the schematic shown in Figure~\ref{fig:schematic}.
+    \item A DC voltage was applied using the power supply.
+    \item Voltage across the resistor and current through the circuit were measured using a multimeter.
+    \item Measurements were repeated for multiple voltage levels.
+\end{enumerate}
+
+% ---------------- Analysis ----------------
+\section{Analysis}
+
+\subsection{Sample Ohm’s Law Calculation}
+Ohm’s Law is given by:
+\begin{equation}
+    V = IR
+\end{equation}
+
+Given:
+\[
+V = \SI{1}{\volt}, \quad R = \SI{1000}{\ohm}
+\]
+
+The theoretical current is:
+\begin{equation}
+    I = \frac{V}{R} = \frac{1}{1000} =  \SI{0.001}{\ampere}
+\end{equation}
+
+% ---------------- Data ----------------
+\section{Data}
+\subsection{Measurement of resistor}
+\begin{itemize}
+    \item R1 = 0.988k\SI{}{\ohm} normally 1k\SI{}{\ohm}
+    \item R2 = 2.155k\SI{}{\ohm} normally 2k\SI{}{\ohm}
+
+    \item R3 = 2.856k\SI{}{\ohm} normally 3k\SI{}{\ohm}
+    \item R4 = 9.840k\SI{}{\ohm} normally 10k\SI{}{\ohm}
+    
+\end{itemize}
+
+\subsection{Simulation and measurement values}
+\begin{table}[H]
+\centering
+\begin{tabularx}{0.8\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X | }
+ \hline
+ Voltage (V) & Current (A) in the R1 circuit simulated & Current (A) in the R1 circuit measured \\
+ \hline
+ 0   & 0   & 0   \\
+\hline
+ 1   & 0.001 & 1.002$\times 10^{-3}$  \\
+\hline
+ 2   & 0.002 & 2.034$\times 10^{-3}$   \\
+\hline
+ 3   & 0.003 & 3.002$\times 10^{-3}$   \\
+\hline
+ 4  & 0.004  & 4.075$\times 10^{-3}$  \\
+\hline
+ 5   & 0.005  & 5.042$\times 10^{-3}$  \\
+\hline
+ 6 & 0.006 & 6.050$\times 10^{-3}$   \\
+\hline
+ 7 & 0.007  & 7.066$\times 10^{-3}$   \\
+\hline
+ 8 & 0.008 & 8.091$\times 10^{-3}$   \\
+\hline
+ 9 & 0.009  & 9.161$\times 10^{-3}$   \\
+\hline
+ 10 & 0.01 & 10.129$\times 10^{-3}$   \\
+\hline
+\end{tabularx} 
+\caption{Voltage and current values for simple 1k\SI{}{\ohm} resistor circuit}
+
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{1\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X |
+   >{\centering\arraybackslash}X |
+    >{\centering\arraybackslash}X |
+     >{\centering\arraybackslash}X |
+      >{\centering\arraybackslash}X |}
+ \hline
+ Voltage (V) & Current (A) in the R2 circuit simulated & Current (A) in the R2 circuit measured & Current (A) in the R3 circuit simulated & Current (A) in the R3 circuit measured & Current (A) in the R4 circuit simulated & Current (A) in the R4 circuit measured \\
+ \hline
+ 0 & 0  & 0& 0  & 0  & 0  & 0  \\
+\hline
+ 2   & 0.001  & 0.954$\times 10^{-3}$  & 0.667$\times 10^{-3}$ & 0.668$\times 10^{-3}$  & 0.2$\times 10^{-3}$ &0.208$\times 10^{-3}$\\
+\hline 
+ 4   & 0.002  & 1.854$\times 10^{-3}$  & 1.333$\times 10^{-3}$ &1.348$\times 10^{-3}$ & 0.4$\times 10^{-3}$ &0.414$\times 10^{-3}$ \\
+\hline
+ 6   & 0.003  & 2.819$\times 10^{-3}$  & 2.000$\times 10^{-3}$ & 2.052$\times 10^{-3}$  &0.6$\times 10^{-3}$  & 0.612$\times 10^{-3}$  \\
+\hline
+ 8 & 0.004  & 3.737$\times 10^{-3}$  &2.667$\times 10^{-3}$ & 2.72$\times 10^{-3}$ & 0.8$\times 10^{-3}$& 0.822$\times 10^{-3}$ \\
+\hline
+ 10   & 0.005  & 4.687$\times 10^{-3}$ &3.333$\times 10^{-3}$ & 3.41$\times 10^{-3}$&1.000$\times 10^{-3}$ & 1.030$\times 10^{-3}$ \\
+\hline
+\end{tabularx} 
+\caption{Voltage and current values for simple 2k\SI{}{\ohm},  3k\SI{}{\ohm},  10k\SI{}{\ohm} resistor circuit}
+
+\end{table}
+
+% ---------------- Graphs ----------------
+\section{Graphs}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{iv_graph.png}
+%     \caption{Current vs. Voltage relationship}
+% \end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{linearRelationshipR1Edited.png}
+    \caption{Voltage vs. measured current graph for R1}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{linearRelationshipR234.png}
+    \caption{Voltage vs. measured current graph for R2, R3, and R4}
+    \label{fig:placeholder2}
+\end{figure}
+
+% ---------------- Discussion ----------------
+\section{Discussion and Conclusions}
+
+\subsection{Relationship}
+The experimental results in figure \ref{fig:placeholder} and figure \ref{fig:placeholder2} demonstrate a linear relationship between voltage and current, confirming that current is linearly proportional to voltage and inversely proportional to resistance. The slope of the voltage-measured current graph represents the values of resistance.
+
+\subsection{Experimental and Simulated Results}
+The measured values were close to simulated results, with minor discrepancies.
+
+Possible sources of error include:
+\begin{itemize}
+        \item The difference in initial values of resistors 
+    \item Internal resistance of the multimeter
+    \item Contact resistance from wiring and breadboard connections
+\end{itemize}
+
+\subsection{Conclusion}
+This experiment successfully verified Ohm’s Law through experimental measurement. The results closely matched theoretical predictions within small discrepancies.
+
+\end{document}
