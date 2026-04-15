@@ -1,0 +1,360 @@
+\documentclass[12pt]{article}
+% ---------------- Packages ----------------
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\setlength{\parindent}{0pt}
+\onehalfspacing
+\begin{document}
+
+\begin{titlepage}
+    \centering
+
+    \vspace*{1in}
+
+    \textbf{\Large COLLEGE OF LAKE COUNTY} \\[0.2in]
+
+    \textbf{\large Department of Engineering} \\[0.6in]
+
+    \textbf{\Large EGR 260} \\
+    \textbf{\large Introduction to Circuit Analysis} \\[0.6in]
+
+    \textbf{\Large Lab \#4 Superposition} \\[0.2in]
+
+
+    \begin{center}
+            \textbf{Reported by:} Anh Thong Le \\[0.15in]
+    \textbf{Date Performed:} February 26, 2026 \\[0.15in]
+    \textbf{Date Submitted:} April 01, 2026 \\[0.15in]
+    \textbf{Submitted to:} Dr. Regez
+    \end{center}
+        
+
+    \vfill
+\end{titlepage}
+
+
+% ---------------- Title Info ----------------
+\title{\textbf{EGR 260: Intro to Circuit Analysis}\\
+Lab \#3}
+\author{
+Anh Thong Le \\
+Instructor: Dr. Regez \\
+Department of Engineering \\
+College of Lake County
+}
+\date{Date Performed: February 19, 2026\quad Date Submitted: March XX, 2026}
+
+% ---------------- Objective ----------------
+\section{Objective}
+The objective of this experiment is to calculate the load voltage and resistance of a simple resistive circuit using the superposition theorem, simulate power supply and current supply separately and confirm superposition theorem. 
+
+
+
+% ---------------- Equipment ----------------
+\section{Equipment}
+% \begin{itemize}
+%     \item DC power supply
+%     \item Digital multimeter
+%     \item Resistors (four 2k resistors, two 1k resistors, one 4k resistor, and one 10k resistor)
+%     \item Breadboard
+%     \item Connecting wires
+% \end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{labReport3Apparatus.jpg}
+    \caption{The picture displaying connecting wires, breadboard, male-to-male jumper wires, and six resistors}
+    \label{fig:Lab3Apparatus}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=0.8\linewidth]{BK_Precision_DC_Power_Supply.jpg}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=0.9\linewidth]{BK_Precision_Digital_Multimeter.jpg}
+    \end{subfigure}
+    \caption{Two pictures displaying the BK Precision DC Power Supply (left) and the BK Precision Digital Multimeter (right) used in this experiment.}
+\end{figure}
+
+
+% ---------------- Experimental Procedure ----------------
+\section{Experimental Procedure}
+Figure 3 shows the schematic of the circuit used in part 1 of the experiment.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{KCL and KVL Analysis Circuit.png}
+    \caption{Circuit Schematic}
+    \label{fig:KCLAndKVLCircuit}
+\end{figure}
+\textbf{The experimental procedure}
+\begin{enumerate}
+    \item Gather six resistors, measure, and record the actual resistances shown in Figure 3.
+    \item Integrate the resistors and jumper wires into a breadboard and construct as shown in Figure 3.
+    \item Turn off power supply and insert an ammeter between the 62 ohm resistor (R5) and node 3. 
+    \item Turn on both 7V and 3V sources and measure the current through R5
+    \item Next, record the current due to each power supply acting independently by replacing the 7V supply with a short circuit. 
+    \item Then, record the current between node 3 and R5. 
+    \item Replace the 3V source, restore the 7V source, and repeat step 6. 
+\end{enumerate}
+
+% ---------------- Analysis ----------------
+\section{Analysis}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{3VoltageSuperposition.png}
+    \caption{The picture displaying the circuit after shorting the 7V source}
+    \label{fig:3VSuperposition}
+\end{figure}
+\text{Starting with mesh a, use the mesh-current method to find the current through resistor R5:  }
+\begin{equation}
+    39(i_a -i_b) + 510(i_a - i_c) = 0 
+    \notag
+\end{equation}
+\begin{equation}
+    549i_a - 39i_b - 510 i_c = 0 
+    \tag{04.01}
+\end{equation}
+\text{Mesh-current method with mesh b: }
+\begin{equation}
+    39(i_b-i_a) + 510i_b + 62(i_b-i_c)=0
+    \notag
+\end{equation}
+\begin{equation}
+    -39i_a  + 611i_b - 62 i_c =0
+    \tag{04.02}
+\end{equation}
+\text{Similarly with mesh c: }
+\begin{equation}
+    62(i_c-i_b)+82(i_c-i_d)+510(i_c-i_a) - 3 = 0
+    \notag
+\end{equation}
+\begin{equation}
+   -510i_a -62 i_b + 654i_c -82i_d   = 3
+    \tag{04.03}
+\end{equation}
+\text{Finally mesh d: }
+\begin{equation}
+    82(i_d-i_c)+2000i_d +3 =0
+    \notag
+\end{equation}
+\begin{equation}
+    -82i_c +2082i_d   =- 3
+    \tag{04.04}
+\end{equation}
+\text{From the equations (04.01), (04.02), (04.03), (04.04), form and solve the matrix:}
+\begin{equation}
+    \begin{vmatrix}
+        549 & -39 & -510 & 0\\
+        -39 & 611 & -62 & 0\\
+        -510 & -62 & 654 & -82\\
+        0 & 0 & -82 & 2082
+    \end{vmatrix}
+    \begin{vmatrix}
+        i_a\\
+        i_b\\
+        i_c\\
+        i_d
+    \end{vmatrix}
+    =
+    \begin{vmatrix}
+        0\\
+        0\\
+        3\\
+        -3
+    \end{vmatrix}
+    \notag
+\end{equation}
+\text{After solving the matrix using inverse matrices: }
+\begin{equation}
+    i_a = \frac{1308450}{77794709} 
+    \notag
+\end{equation}
+\begin{equation}
+    i_b = \frac{224700}{77794709} 
+    \notag
+\end{equation}
+\begin{equation}
+    i_c =\frac{1391325}{77794709} 
+    \notag
+\end{equation}
+\begin{equation}
+    i_d = \frac{-114597}{155589418}  
+    \notag
+\end{equation}
+
+\text{With the calculated mesh currnents, calculate the current through R5: }
+\begin{equation}
+    i_{01} = i_c-i_b = \frac{1391325}{77794709} - \frac{224700}{77794709} = \SI{14.996 }{mA}
+        \notag
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{7V_Independent_source.png}
+    \caption{The picture displaying the circuit after resorting the 7V and shorting the 3V source}
+    \label{fig:7VSuperposition}
+\end{figure}
+Similar to the previous part, use mesh-current method to find the current through R5. Beginning with mesh a: 
+\begin{equation}
+    39(i_b-i_a) + 510i_b - 7 =0 
+    \notag
+\end{equation}
+\begin{equation}
+    549i_a - 39i_b - 510 i_c = 7
+    \tag{04.05}
+\end{equation}
+\text{Mesh-current method around mesh b: }
+\begin{equation}
+    39(i_b-i_a) + 510i_b + 62(i_b-i_c)=0
+    \notag
+\end{equation}
+\begin{equation}
+    -39i_a  + 611i_b - 62 i_c =0
+    \tag{04.06}
+\end{equation}
+\text{Eventually around mesh c: }
+\begin{equation}
+    62(i_c-i_b)+510(i_c-i_a)+(82 \parallel 2000) i_c = 0
+    \notag
+\end{equation}
+\begin{equation}
+    -510i_a-62i_b+650.77i_c = 0
+    \tag{04.07}
+\end{equation}
+\text{From (04.05), (04.06), (04.07), form a matrix: }
+\begin{equation}
+    \begin{vmatrix}
+        549 & -39 & -510  \\
+        -39 & 611 & -62 \\
+        -510 & -62 & 650.77 
+    \end{vmatrix}
+    \begin{vmatrix}
+        i_a\\
+        i_b\\
+        i_c 
+    \end{vmatrix}
+    =
+    \begin{vmatrix}
+        7\\
+        0\\
+        0
+    \end{vmatrix}    
+        \notag
+\end{equation}
+\text{After solving the matrix: }
+% \begin{equation}
+%         \begin{vmatrix}
+%         i_a\\
+%         i_b\\
+%         i_c
+%     \end{vmatrix}   
+%     = 
+%     \begin{vmatrix}
+%         0.05123\\
+%         0.0074155 \\
+%         0.
+%     \end{vmatrix}
+%         \notag
+% \end{equation}
+\begin{equation}
+    i_a = 0.05123
+    \notag
+\end{equation}
+\begin{equation}
+    i_b = 0.0074155
+    \notag
+\end{equation}
+\begin{equation}
+    i_c = 0.04085
+    \notag
+\end{equation}
+\text{From the calculated mesh currents, calculate the current between resistor R5 and node 3: }
+\begin{equation}
+    i_{02} = i_c - i_b = 0.04085 - 0.0074155 = \SI{33.438 }{mA} 
+        \notag
+\end{equation}
+\text{According to the superposition theorem, the total current is equal to the sum of $i_{01}$ and $i_{02}$: }
+\begin{equation}
+    i_{total} = i_{01} + i_{02} = 14.996 + 33.438 = \SI{48.434 }{mA}
+    \notag
+\end{equation}
+% ---------------- Data ----------------
+\section{Data}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|cc|cc|cc|}
+\hline
+\multirow{}{}{\text{Resistor}} & 
+\multicolumn{2}{c|}{Resistance (\SI{}{\ohm})} &
+\multicolumn{2}{c|}{Current (A)} &
+\multicolumn{2}{c|}{Voltage drop (V)} \\
+\cline{2-7}
+& Measured & Simulated & Measured & Simulated & Measured & Simulated \\
+\hline
+
+R1 & 38.41 & 39   & 0.05782  & 0.05774  & 2.221 & 2.252 \\
+R2 & 505.2 & 510  &  0.00946 & 0.00931  & 4.779 & 4.748 \\
+R3 & 505.7 & 510  & 0.010508 & 0.010304 & 5.314 & 5.255 \\
+R4 & 1,988 & 2,000& 0.000846 & 0.000873 & 1.683 & 1.745 \\
+R5 & 64.05 & 62   & 0.048165 & 0.048435 & 3.085 & 3.003 \\
+R6 & 81.29 & 82   & 0.057965 & 0.057866 & 4.712 & 4.745 \\
+\hline
+\end{tabular}
+\caption{Measured and simulated values for the Circuit}
+\label{table1}
+\end{table}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\centering Simulated current due to 7V source (mA) &
+\centering Simulated current due to 3V source (mA)&
+\centering Simulated current due to both sources (mA)&
+\centering Measured current due to 7V source (mA)&
+\centering Measured current due to 3V source (mA)&
+\centering Measured current due to both sources (mA)
+\tabularnewline
+\hline
+\centering 33.438   & \centering 14.996 & \centering 48.434& 
+\centering 33.81    & \centering 15.59 & \centering 49.4 \tabularnewline
+\hline
+\end{tabular}
+\caption{Simulated and measured current due to each voltage source and both voltage sources.}
+\end{table}
+% ---------------- Graphs ----------------
+\section{Graphs}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{SuperpositionComparison.png}
+    \caption{The graph displaying small discrepancy between the measured and simulated total current}
+    \label{fig:superposition}
+\end{figure}
+% ---------------- Discussion ----------------
+\section{Discussion and Conclusions}
+\subsection{Discussion}
+According to superposition theorem, the total current at a given point is the sum of the currents due to each voltage/current source in the circuit. In the analysis part, the circuit was analyzed when voltage source acted individually and the currents due to each sources added up to the simulated total current through resistor R5, successfully confirming the superposition theorem. 
+% \begin{itemize}
+%         \item Resistor tolerance (typically ±5\%)
+%     \item Internal resistance of the multimeter
+%     \item Breadboard contact resistance
+%     \item Slight variations in the power supply output
+% \end{itemize}
+\singlespacing
+\noindent Regarding to discrepancy, the percent error stayed relatively small mainly due to difference in the actual and theoretical resistance measurements. 
+
+
+\subsection{Conclusion}
+Overall, the experiment completed the given objective by calculating the current due to each voltage source at a given point, verifying the superposition theorem as the analysis showed the individual currents added up to the total current. 
+\end{document}
